@@ -1,0 +1,26 @@
+.SideMenuItem{
+    height: 7vh;
+    width: 100%;
+}
+
+.SideMenuItem:hover{
+    background-color: #303030;
+    filter: brightness(150%);
+}
+
+.SideMenuItem a {
+    display: flex;
+    flex-direction: row;
+    justify-items: space-around;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    height: 80%;
+    width: 100%;
+    padding: 0 10%;
+}
+
+.SideMenuItem > a > img {
+    height: 70%;
+    margin-right: 24px;
+}

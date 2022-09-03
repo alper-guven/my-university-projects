@@ -1,0 +1,17 @@
+.CartItem{
+
+    border-bottom: 1px solid gray;
+
+    padding: 5px 10px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.CartItem > button {
+    float: right;
+    font-weight: bold;
+    background-color: white ;
+    border: none;
+    color: red;
+}

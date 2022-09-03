@@ -1,0 +1,30 @@
+body{
+    min-height: 100vh;
+    width: 100vw;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.App{
+    margin-top: 3vh;
+    min-height: 100vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Footer{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10vh;
+}
+
+.FooterLinks {
+    display: flex;
+    justify-content: space-around;
+}

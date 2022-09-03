@@ -1,0 +1,6 @@
+.Products{
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

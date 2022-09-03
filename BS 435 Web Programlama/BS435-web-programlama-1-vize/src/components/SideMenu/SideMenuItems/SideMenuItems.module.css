@@ -1,0 +1,14 @@
+.SideMenuItemsWrapper {
+    margin: 1vh 0;
+    border-top: 2px solid gray;
+    width: 100%;
+}
+
+.SideMenuItemsWrapper > h4 {
+    color: gray;
+    margin-left: 10px;
+}
+
+.SideMenuItems {
+    width: 100%;
+}

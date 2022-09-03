@@ -1,0 +1,285 @@
+<div class="row" style="margin-left: 5vw; margin-top: 5vh;">
+
+    <div class="alert alert-success" role="alert" *ngIf="publishErrorMessage">
+        {{publishErrorMessage}}
+    </div>
+
+    <div class="alert alert-success" role="alert" *ngIf="publishSuccessMessage">
+        {{publishSuccessMessage}}
+    </div>
+
+    <div class="row" style="
+        width: 70vw;
+    ">
+
+        <div class="col text-center" style="border: 2px solid black; padding: 5px; font-size: 1.4rem;"
+            [ngClass]="{'selectedSection': selectedSectionName === 'hammaddeBilgisi'}"><b>Hammadde
+                Bilgisi</b></div>
+        <div class="col text-center" style="border: 2px solid black; padding: 5px; font-size: 1.4rem;"
+            [ngClass]="{'selectedSection': selectedSectionName === 'fabrikaIslemleri'}"><b>Fabrika İçi
+                İşlemler</b></div>
+        <div class="col text-center" style="border: 2px solid black; padding: 5px; font-size: 1.4rem;"
+            [ngClass]="{'selectedSection': selectedSectionName === 'distributorIslemleri'}"><b>Distribütör
+                İşlemleri</b></div>
+        <div class="col text-center" style="border: 2px solid black; padding: 5px; font-size: 1.4rem;"
+            [ngClass]="{'selectedSection': selectedSectionName === 'satisIslemleri'}"><b>Satış
+                İşlemleri</b></div>
+
+    </div>
+
+    <div class="row" style="
+    width: 70vw;
+    margin-left: 0.1vw;
+">
+
+        <div class="row w-100" [ngSwitch]="selectedSectionName">
+
+            <div *ngSwitchCase="'hammaddeBilgisi'" class="col w-100 h-auto" style=" margin-top: 3vh; padding: 20px;">
+
+                <form class="w-100">
+
+                    <div class="row w-100" style="margin-bottom: 2vh;">
+
+                        <div class="col-6">
+                            <label for="zeytinTuruSelection">Zeytin Türü</label>
+
+
+                            <select class="custom-select" name="annSelection" #zeytinTuruSelection
+                                (change)="onZeytinTuruChange(zeytinTuruSelection.value)">
+                                <option value="" disabled selected>Zeytin Türü Seçin...</option>
+                                <option *ngFor="let zeytin of zeytinTurBilgileri" [value]="zeytin.tur">
+                                    {{ zeytin.tur }}
+                                </option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row w-100" style="margin-bottom: 2vh;">
+
+                        <div class="col">
+                            <label for="inputState">Zeytin Yağ Oranı</label>
+                            <input type="text" class="form-control" name="zeytin-yagmiktari"
+                                [(ngModel)]="newProduct.hammaddeBilgisi.zeytin.yagMiktari" disabled>
+                        </div>
+
+                        <div class="col">
+                            <label for="inputState">Orijin</label>
+                            <input type="text" class="form-control" name="zeytin-orijin"
+                                [(ngModel)]="newProduct.hammaddeBilgisi.zeytin.orijin" disabled>
+                        </div>
+
+                        <div class="col">
+                            <label for="inputState">Et/Çekirdek Oranı</label>
+                            <input type="text" class="form-control" name="zeytin-etcek"
+                                [(ngModel)]="newProduct.hammaddeBilgisi.zeytin.etCekirdekOrani" disabled>
+                        </div>
+
+                    </div>
+
+                    <div class="row" style="margin-bottom: 2vh;">
+                        <div class="col-4">
+                            <label for="inputState">Fabrika Giriş Tarihi</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.hammaddeBilgisi.fabrikaGirisTarihi" placeholder="23.11.2019">
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-bottom: 2vh;">
+                        <div class="col-4">
+                            <label for="inputState">Zeytinin Alındığı Kişi</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.hammaddeBilgisi.uretici">
+                        </div>
+                    </div>
+
+
+
+                </form>
+
+            </div> <!-- hammadde sonu -->
+
+
+            <div *ngSwitchCase="'fabrikaIslemleri'" class="col w-100 h-auto" style=" margin-top: 3vh; padding: 20px;">
+
+                <form class="w-100">
+
+                    <div class="row w-100" style="margin-bottom: 2vh;">
+                        <div class="col-6">
+                            <label for="inputState">Ezme İşlemi Süresi</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.fabrikaIslemleri.ezmeIslemiSuresi">
+                        </div>
+                        <div class="col-6">
+                            <label for="inputState">Malakatör Sıcaklığı</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.fabrikaIslemleri.malakatorSicakligi">
+                        </div>
+                    </div>
+
+                    <div class="row w-100" style="margin-bottom: 2vh;">
+                        <div class="col-6">
+                            <label for="inputState">Malakasyon Süresi</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.fabrikaIslemleri.malakasyonSuresi">
+                        </div>
+                        <div class="col-6">
+                            <label for="inputState">Kilo Başına Su Miktarı</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.fabrikaIslemleri.kiloBasinaSuMiktari">
+                        </div>
+                    </div>
+
+                    <div class="row w-100" style="margin-bottom: 2vh;">
+                        <div class="col-6">
+                            <label for="inputState">Perkolasyon</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.fabrikaIslemleri.perkolasyon">
+                        </div>
+                        <div class="col-6">
+                            <label for="inputState">Prima Nem Miktarı</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.fabrikaIslemleri.primaNemMiktari">
+                        </div>
+                    </div>
+
+                    <div class="row w-100" style="margin-bottom: 2vh;">
+                        <div class="col-6">
+                            <label for="inputState">Parti Bilgisi</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.fabrikaIslemleri.partiBilgisi">
+                        </div>
+                        <div class="col-6">
+                            <label for="inputState">Partide İşlenen Ürün Sayısı</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.fabrikaIslemleri.partideIslenenUrunSayisi">
+                        </div>
+                    </div>
+
+                </form>
+
+            </div> <!-- fabrika sonu -->
+
+
+            <div *ngSwitchCase="'distributorIslemleri'" class="col w-100 h-auto"
+                style=" margin-top: 3vh; padding: 20px;">
+
+                <form class="w-100">
+
+                    <div class="row w-100" style="margin-bottom: 2vh;">
+                        <div class="col-6">
+                            <label for="inputState">Distribütörün Adı</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.distributorIslemleri.distrubutorAdi">
+                        </div>
+                        <div class="col-6">
+                            <label for="inputState">Alan Kişi</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.distributorIslemleri.alanKisi">
+                        </div>
+                    </div>
+
+                    <div class="row w-100">
+                        <div class="col-3">
+                            <label for="customRadio1">Teslim Türü</label>
+                        </div>
+                        <div class="col-6">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input"
+                                    value="kargo" [(ngModel)]="newProduct.distributorIslemleri.gondermeTuru" selected>
+                                <label class="custom-control-label" for="customRadio1">Kargo</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input"
+                                    value="elden" [(ngModel)]="newProduct.distributorIslemleri.gondermeTuru">
+                                <label class="custom-control-label" for="customRadio2">Elden</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row w-100" style="margin-bottom: 2vh;">
+                        <div class="col-6">
+                            <label for="inputState">Ürün Miktarı</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.distributorIslemleri.urunMiktari">
+                        </div>
+                        <div class="col-6">
+                            <label for="inputState">Sevkiyat Tarihi</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.distributorIslemleri.sevkiyatTarihi">
+                        </div>
+                    </div>
+
+                    <div class="row w-100" style="margin-bottom: 2vh;"
+                        *ngIf="newProduct.distributorIslemleri.gondermeTuru === 'kargo'">
+                        <div class="col-6">
+                            <label for="inputState">Tahmini Sevkiyat Süresi</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.distributorIslemleri.tahminiSevkiyatSuresi">
+                        </div>
+                        <div class="col-6">
+                            <label for="inputState">Sevkiyatta Yaşanan Problemler</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.distributorIslemleri.sevkiyatSorunlari">
+                        </div>
+                    </div>
+
+                </form>
+
+            </div> <!-- distrubutor sonu -->
+
+
+            <div *ngSwitchCase="'satisIslemleri'" class="col w-100 h-auto" style=" margin-top: 3vh; padding: 20px;">
+
+                <form class="w-100">
+
+                    <div class="row w-100" style="margin-bottom: 2vh;">
+                        <div class="col-6">
+                            <label for="inputState">Teslim Alınan Tarih</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.satisIslemleri.teslimAlinanTarih">
+                        </div>
+                        <div class="col-6">
+                            <label for="inputState">Ürün Sayısı</label>
+                            <input type="text" class="form-control" name="announcement-duration"
+                                [(ngModel)]="newProduct.satisIslemleri.urunSayisi">
+                        </div>
+                    </div>
+
+
+                </form>
+
+            </div> <!-- satış sonu -->
+
+        </div> <!-- Switch Sonu -->
+
+
+        <div class="row w-100">
+            <div class="row w-100" style="margin-bottom: 2vh;">
+                <div class="col">
+                    <button class="btn btn-lg btn-warning float-left" *ngIf="sectionIndex != 0"
+                        (click)="onClickPrevSection()"><b>Önceki</b></button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-lg btn-info float-right" (click)="onClickSubmit()" *ngIf="sectionIndex == 3">
+                        <b>Kaydet</b></button>
+                </div>
+                <div class="col" *ngIf="sectionIndex != 3">
+                    <button type="submit" class="btn btn-lg btn-success float-right"
+                        (click)="onClickNextSection()"><b>Sonraki</b></button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+</div>

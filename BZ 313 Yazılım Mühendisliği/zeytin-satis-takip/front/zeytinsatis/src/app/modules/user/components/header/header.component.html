@@ -1,0 +1,24 @@
+<div class="col-12 ann-header">
+
+        <div class="row h-100">
+            <div class="col-10 "></div>
+            <div class="col-2">
+                    <!-- <i class="far fa-user"></i> -->
+    
+    
+                <div class="h-100 d-flex flex-column align-items-center justify-content-center">
+    
+                    <h4 *ngIf="loggedUser">
+                        <span>{{loggedUser.fullName}}</span>
+                    </h4>
+    
+                    <span *ngIf="loggedUser">{{loggedUser.company}}</span>
+                    <!-- <span *ngIf="loggedUser.role=='employee' || loggedUser.role == '2'">İçerik Düzenleyici</span> -->
+                
+                </div>
+    
+            </div>
+        </div>
+    
+    
+    </div>

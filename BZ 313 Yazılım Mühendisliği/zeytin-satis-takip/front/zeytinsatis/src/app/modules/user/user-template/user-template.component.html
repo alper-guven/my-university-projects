@@ -1,0 +1,27 @@
+<div class="row h-100">
+
+    <div class="col-2 ann-menu-area">
+        <app-user-menu class="row  h-100"></app-user-menu>
+    </div>
+
+    <div class="col-10 d-flex flex-column">
+        <!-- <div class="row ann-header-area">
+            </div> -->
+        <app-user-header class="row" style="
+            min-height: 50px;
+            height: 10vh; "></app-user-header>
+
+
+        <div class="row ann-router-area">
+
+            <div class="col-12">
+                <ng-content></ng-content>
+            </div>
+
+        </div>
+        <!-- <div class="row ann-page-area">
+            </div> -->
+
+    </div>
+
+</div>

@@ -1,0 +1,113 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="kullanici.master.cs" Inherits="ProjeKitapDTS.kullanici" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+
+    <title>KitapDTS</title>
+    <asp:ContentPlaceHolder ID="kullaniciHead" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        .kitapDTS-bg-main{
+            }
+    </style>
+</head>
+<body class="kitapDTS-bg-main">
+    <form id="form1" runat="server">
+
+    <nav class="navbar navbar-expand-md sticky-top" style="background-color: #1976D2; border-bottom: 1px solid #BDBDBD;">
+          <a href="/" class="navbar-brand" style="color: #FFFFFF;">         
+            <b>KitapDTS</b>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar7">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse justify-content-stretch" id="navbar7">
+              <ul class="navbar-nav ml-auto">
+               <% if ( Convert.ToBoolean(Session["isLogged"]) == true ) { %>
+                  <li class="nav-item">
+                      <a class="nav-link" style="color: #FFFFFF;" href="/mesajlar">Mesajlar</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" style="color: #FFFFFF;" href="/kullanici/<%= Session["KullaniciAdi"] %>">Profil</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" style="color: #FFFFFF;" href="/cikis">Çıkış Yap</a>
+                  </li>
+                <% } else { %>
+                  <li class="nav-item">
+                      <a class="nav-link" style="color: #FFFFFF;" href="/kayit">Kayıt Ol</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" style="color: #FFFFFF;" href="/giris">Giriş Yap</a>
+                  </li>
+                <% } %>                
+              </ul>
+          </div>
+      </nav>
+
+    <div class="container-fluid" style="height:100%;">
+    <% if (Convert.ToBoolean(Session["isLogged"]) == true)
+               { %>
+      <div class="row" style="height: 100%;">
+            <div class="col-2" style="background-color: #BBDEFB; min-height: 675px; height: initial;">
+
+                  <div class="row" style="height: 29px;"></div>
+
+                  <div class="row" style="padding: 10px 0px 0px 20px; border-bottom: 15px solid #1976D2;"><h4>Popüler</h4></div>
+                      <div class="row" style="padding: 10px 0px 0px 20px;"><h5 style="border-left: 5px solid #FFFFFF;"><a style="color:black;" href="/populer-kitaplar">Popüler Kitaplar</a></h5></div>
+                      <div class="row" style="padding: 10px 0px 0px 20px;"><h5 style="border-left: 5px solid #FFFFFF;">
+                      <a style="color:black;" href="/populer-yuksekPuanliKitaplar">Yüksek Puanlı Kitaplar</a></h5></div>
+                      <div class="row" style="padding: 10px 0px 0px 20px;"><h5 style="border-left: 5px solid #FFFFFF;">
+                      <a style="color:black;" href="/populer-yazarlar">Popüler Yazarlar</a></h5></div>                
+                  <div class="row" style="padding: 10px 0px 0px 20px; border-bottom: 15px solid #1976D2;"><h4>Arama</h4></div>
+                      <div class="row" style="padding: 10px 0px 0px 20px;"><h5 style="border-left: 5px solid #FFFFFF;">
+                      <a style="color:black;" href="/arama-kitap">Kitap</a></h5></div>
+                      <div class="row" style="padding: 10px 0px 0px 20px;"><h5 style="border-left: 5px solid #FFFFFF;">
+                      <a style="color:black;" href="/arama-yazar">Yazar</a></h5></div>
+                      <div class="row" style="padding: 10px 0px 0px 20px;"><h5 style="border-left: 5px solid #FFFFFF;">
+                      <a style="color:black;" href="/arama-kullanici">Kullanıcı</a></h5></div> 
+            </div>
+
+            <asp:ContentPlaceHolder ID="kullaniciBody" runat="server">
+        
+            </asp:ContentPlaceHolder>
+
+        </div>
+       <% } %>
+     
+            <% if (Convert.ToBoolean(Session["isLogged"]) == false)
+               { %>
+
+        <asp:ContentPlaceHolder ID="kullaniciNotLoggedin" runat="server">
+            <div class="col-12">
+                <h3>
+                    Site içeriğini görebilmek için <a href="/giris">Giriş Yapın</a>.
+                </h3>
+                <h3>
+                    Siteye üye değilseniz <a href="/kayit">Kayıt Olun</a>.
+                </h3>
+            </div>
+        </asp:ContentPlaceHolder>
+
+       
+       <% } %>
+    </div>
+
+    </form>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+.Tags{
+    height: 56px;
+    width: 100%;
+
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+    
+
+    background-color: #303030;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+
+    align-items: center;
+
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 90;
+}
+
+/* .Tags::-webkit-scrollbar {
+    display: none;
+} */
+
+.Tags a {
+    text-decoration: none;
+    color: white;
+    margin-right: 10px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    background-color: rgb(97, 96, 96);
+    padding: 1px 5px;
+}

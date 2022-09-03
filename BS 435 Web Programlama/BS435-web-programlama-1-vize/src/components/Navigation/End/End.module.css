@@ -1,0 +1,17 @@
+.End {
+    height: 80%;
+    width: 15%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+
+.EndLink {
+    height: 80%;
+}
+
+.EndLink > img {
+    height: 80%;
+    margin: auto 0;
+}

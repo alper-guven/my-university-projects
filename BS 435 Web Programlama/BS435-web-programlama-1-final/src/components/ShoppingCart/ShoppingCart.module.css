@@ -1,0 +1,72 @@
+.ShoppingCart{
+    margin: 3vh auto 5vh 0;
+
+    width: 20vw;
+    height: auto;
+    
+
+    display: flex;
+    flex-direction: column;
+}
+
+.Title{
+    color: gray;
+}
+
+.Title span {
+    float: right;
+}
+
+.MiddleWrapper{
+    border: 1px solid gray;
+}
+
+.CartItemsContainer{
+    background-color: white;
+}
+
+.CouponDetails{
+    border-bottom: 1px solid gray;
+    background-color: lightgray;
+    padding: 5px 10px;
+    color: green;
+    font-weight: bold;
+}
+
+.CouponDetails span {
+    font-weight: normal;
+}
+
+.CouponDetails > span {
+    float: right;
+}
+
+.TotalPrice{
+    background-color: white;
+    padding: 5px 10px;
+}
+
+.TotalPrice > span {
+    float: right;
+    font-weight: bold;
+}
+
+.CouponWrapper{
+    margin-top: 2vh;
+    background-color: white;
+    padding: 5px;
+}
+
+.CouponWrapper input {
+    padding: 5px;
+    width: 65%;
+}
+
+.CouponWrapper button {
+    padding: 7px;
+    width: 30%;
+    height: 100%;
+    background-color:gray;
+    border: none;
+    color: white;
+}

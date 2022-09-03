@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="yonetim.master.cs" Inherits="ProjeKitapDTS.yonetim" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+
+    <!-- Include the AngularJS library -->
+    <script src="http://localhost:18499/Scripts/angular.js"></script>
+
+    <title>KitapDTS</title>
+    <asp:ContentPlaceHolder ID="yoneticiHead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <nav class="navbar navbar-expand-md sticky-top" style="background-color: #1976D2; border-bottom: 1px solid #BDBDBD;">
+          <a href="/yonetim/" class="navbar-brand" style="color: #FFFFFF;">         
+            <b>KitapDTS / Yönetim</b>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar7">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse justify-content-stretch" id="navbar7">
+              <ul class="navbar-nav ml-auto">
+                <% if (Convert.ToBoolean(Session["isLoggedasAdmin"]) == true)
+                    { %>
+                  <li class="nav-item">
+                      <a class="nav-link" style="color: #FFFFFF;" href="../cikis">Çıkış Yap</a>
+                  </li>
+                <% } else { %>
+                  <li class="nav-item">
+                      <a class="nav-link" style="color: #FFFFFF;" href="giris">Giriş Yap</a>
+                  </li>
+                <% } %>                
+              </ul>
+          </div>
+      </nav>
+
+    <div class="container-fluid">
+        <% if (Convert.ToBoolean(Session["isLoggedasAdmin"]) == true)
+            { %>
+      <div class="row">
+        <div class="col-2" style="background-color: #BBDEFB;">
+
+              <div class="row" style="height: 29px;"></div>
+
+              <div class="row" style="padding: 10px 0px 0px 20px; border-bottom: 15px solid #1976D2;"><h4><a style="color:black;" href="/yonetim/">Yönetim</a></h4></div>
+                  <div class="row" style="padding: 10px 0px 0px 20px;"><h5 style="border-left: 5px solid #FFFFFF;"><a style="color:black;" href="kitaplar">Kitaplar</a></h5></div>
+                  <div class="row" style="padding: 10px 0px 0px 20px;"><h5 style="border-left: 5px solid #FFFFFF;"><a style="color:black;" href="kitapEkle">Kitap Ekle</a></h5></div>                
+        </div>
+            <asp:ContentPlaceHolder ID="yoneticiBody" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        
+      </div>
+      <% } 
+      else{ %>    
+    <asp:ContentPlaceHolder ID="yoneticiNotLoggedin" runat="server">
+
+    </asp:ContentPlaceHolder>
+     <% } %>
+    </div>
+    </form>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- Modules -->
+    <script src="http://localhost:18499/js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="http://localhost:18499/js/controllers/MainController.js"></script>
+
+</body>
+</html>

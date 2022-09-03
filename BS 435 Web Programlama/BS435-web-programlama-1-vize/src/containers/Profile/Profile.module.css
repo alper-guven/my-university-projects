@@ -1,0 +1,16 @@
+.ProfileWrapper{
+    background-color: lightseagreen;
+    padding: 2vh;
+    height: 90vh;
+    color: white;
+    font-size: xx-large;
+}
+
+.ProfileWrapper a {
+    text-decoration: none;
+    color: yellow;
+    background-color: blue;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 10px;
+}

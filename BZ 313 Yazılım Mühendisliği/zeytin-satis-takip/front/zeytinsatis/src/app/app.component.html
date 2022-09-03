@@ -1,0 +1,26 @@
+<div *ngIf="!isAuthenticated; then showNormalTemplate; else showManagementPanel;"></div>
+
+<ng-template #showNormalTemplate>
+
+  <div class="container-fluid h-100">
+
+    <router-outlet></router-outlet>
+
+  </div>
+
+</ng-template>
+
+<ng-template #showManagementPanel>
+
+  <div class="container-fluid h-100">
+
+    <app-user-template>
+
+      <router-outlet></router-outlet>
+
+    </app-user-template>
+
+
+  </div>
+
+</ng-template>
